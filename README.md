@@ -12,10 +12,39 @@ Spring boot starter Togglz。
                      <version>1.0.0-SNAPSHOT</version>
           </dependency>
 ```
+* 接下来就是创建对应的Feature Enum,代码如下: 
+
+```java
+      package org.mvnsearch.featuretoggle;
+      
+      import org.togglz.core.Feature;
+      import org.togglz.core.annotation.Label;
+      import org.togglz.core.context.FeatureContext;
+      
+      public enum MyFeatures implements Feature {
+      
+          @Label("First Feature")
+          FEATURE_ONE,
+      
+          @Label("Second Feature")
+          FEATURE_TWO;
+      
+          public boolean isActive() {
+              return FeatureContext.getFeatureManager().isActive(this);
+          }
+      
+      }
+
+```
 * 在Spring Boot的application.properties文件中添加togglz对应的配置，如下:
 ```properties                    
           spring.togglz.feature-enum=org.mvnsearch.featuretoggle.MyFeatures
           spring.togglz.features.FEATURE_ONE=true
+```
+* 在应用中调用Feature进行判断: 
+
+```groovy
+      MyFeatures.FEATURE_ONE.isActive()
 ```
 
 ### spring-boot-start-togglz提供的服务
