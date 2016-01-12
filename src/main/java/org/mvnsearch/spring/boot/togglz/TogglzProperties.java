@@ -2,6 +2,7 @@ package org.mvnsearch.spring.boot.togglz;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class TogglzProperties {
     /**
      * features
      */
-    private Map<String,Boolean> features;
+    private Map<String, Boolean> features = new HashMap<>();
 
     public List<Class> getFeatureEnum() {
         return featureEnum;
