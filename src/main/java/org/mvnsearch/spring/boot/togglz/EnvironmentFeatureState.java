@@ -16,6 +16,15 @@ public class EnvironmentFeatureState extends FeatureState {
     public EnvironmentFeatureState(Feature feature, TogglzProperties properties) {
         super(feature);
         this.properties = properties;
+        FeatureStateLite featureStateLite = properties.getFeatures().get(feature.name());
+        if (featureStateLite != null) {
+            setStrategyId(featureStateLite.getStrategyId());
+            if (!featureStateLite.getParameters().isEmpty()) {
+                for (Map.Entry<String, String> entry : featureStateLite.getParameters().entrySet()) {
+                    setParameter(entry.getKey(), entry.getValue());
+                }
+            }
+        }
     }
 
     /**
