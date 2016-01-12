@@ -1,0 +1,26 @@
+@startuml
+
+class FeatureManager {
+
+}
+
+interface Feature {
+   getName();
+}
+
+class FeatureState {
+   Feature feature;
+   boolean enabled;
+   String strategyId;
+   Map<String, String> parameters;
+}
+
+class ActivationStrategy {
+   String id;
+   boolean isActive();
+}
+
+FeatureState -down-> Feature
+FeatureState -> ActivationStrategy
+
+@enduml
