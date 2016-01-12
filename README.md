@@ -47,7 +47,7 @@ Spring boot starter Togglz。
       MyFeatures.FEATURE_ONE.isActive()
 ```
 
-### spring-boot-start-togglz提供的服务
+### spring-boot-start-togglz 提供的服务
 
 * org.togglz.core.manager.FeatureManager: feature manager
 
