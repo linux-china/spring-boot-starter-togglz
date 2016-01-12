@@ -39,7 +39,7 @@ Spring boot starter Togglz。
 * 在Spring Boot的application.properties文件中添加togglz对应的配置，如下:
 ```properties                    
           spring.togglz.feature-enum=org.mvnsearch.featuretoggle.MyFeatures
-          spring.togglz.features.FEATURE_ONE=true
+          spring.togglz.features.FEATURE_ONE.enabled=true
 ```
 * 在应用中调用Feature进行判断: 
 
