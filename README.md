@@ -8,7 +8,7 @@ Spring boot starter Togglz。
 ```xml
           <dependency>
                      <groupId>com.mvnsearch.spring.boot</groupId>
-                     <artifactId>spring-boot-starter-mybatis</artifactId>
+                     <artifactId>spring-boot-starter-togglz</artifactId>
                      <version>1.0.0-SNAPSHOT</version>
           </dependency>
 ```
@@ -18,7 +18,7 @@ Spring boot starter Togglz。
           spring.togglz.features.FEATURE_ONE=true
 ```
 
-### spring-boot-start-mybatis提供的服务
+### spring-boot-start-togglz提供的服务
 
 * org.togglz.core.manager.FeatureManager: feature manager
 
