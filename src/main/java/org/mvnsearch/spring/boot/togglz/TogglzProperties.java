@@ -21,7 +21,7 @@ public class TogglzProperties {
     /**
      * features
      */
-    private Map<String, Boolean> features = new HashMap<>();
+    private Map<String, FeatureStateLite> features = new HashMap<>();
 
     public List<Class> getFeatureEnum() {
         return featureEnum;
@@ -31,11 +31,11 @@ public class TogglzProperties {
         this.featureEnum = featureEnum;
     }
 
-    public Map<String, Boolean> getFeatures() {
+    public Map<String, FeatureStateLite> getFeatures() {
         return features;
     }
 
-    public void setFeatures(Map<String, Boolean> features) {
+    public void setFeatures(Map<String, FeatureStateLite> features) {
         this.features = features;
     }
 }

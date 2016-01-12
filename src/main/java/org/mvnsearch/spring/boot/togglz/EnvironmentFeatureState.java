@@ -32,13 +32,16 @@ public class EnvironmentFeatureState extends FeatureState {
 
     @Override
     public boolean isEnabled() {
-        Boolean result = properties.getFeatures().get(getFeature().name());
-        return result != null && result;
+        FeatureStateLite result = properties.getFeatures().get(getFeature().name());
+        return result != null && result.isEnabled();
     }
 
     @Override
     public FeatureState setEnabled(boolean enabled) {
-        properties.getFeatures().put(getFeature().name(), enabled);
+        FeatureStateLite result = properties.getFeatures().get(getFeature().name());
+        if (result != null) {
+            result.setEnabled(enabled);
+        }
         return this;
     }
 }

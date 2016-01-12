@@ -25,14 +25,20 @@ public class TogglzOperationEndpoint implements MvcEndpoint {
     @RequestMapping(value = "/enable/{feature}", method = RequestMethod.GET)
     @ResponseBody()
     public String enable(@PathVariable String feature) {
-        properties.getFeatures().put(feature, true);
+        FeatureStateLite result = properties.getFeatures().get(feature);
+        if(result!=null) {
+            result.setEnabled(true);
+        }
         return "success";
     }
 
     @RequestMapping("/disable/{feature}")
     @ResponseBody()
     public String disable(@PathVariable String feature) {
-        properties.getFeatures().put(feature, false);
+        FeatureStateLite result = properties.getFeatures().get(feature);
+               if(result!=null) {
+                   result.setEnabled(true);
+               }
         return "success";
     }
 

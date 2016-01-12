@@ -22,6 +22,9 @@ public class EnvironmentStateRepository implements StateRepository {
 
     public void setFeatureState(FeatureState featureState) {
         String name = featureState.getFeature().name();
-        properties.getFeatures().put(name, featureState.isEnabled());
+        FeatureStateLite result = properties.getFeatures().get(name);
+        if (result != null) {
+            result.setEnabled(featureState.isEnabled());
+        }
     }
 }
