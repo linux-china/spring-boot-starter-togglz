@@ -1,6 +1,7 @@
 package org.mvnsearch.spring.boot.togglz;
 
 import org.togglz.core.Feature;
+import org.togglz.core.annotation.EnabledByDefault;
 import org.togglz.core.repository.FeatureState;
 
 import java.util.Map;
@@ -24,6 +25,18 @@ public class EnvironmentFeatureState extends FeatureState {
                     setParameter(entry.getKey(), entry.getValue());
                 }
             }
+        } else {
+            FeatureStateLite stateLite = new FeatureStateLite();
+            stateLite.setEnabled(false);
+            try {
+                EnabledByDefault[] enabledByDefaults = feature.getClass().getDeclaredField(feature.name()).getAnnotationsByType(EnabledByDefault.class);
+                if (enabledByDefaults != null) {
+                    stateLite.setEnabled(true);
+                }
+            } catch (Exception ignore) {
+
+            }
+            properties.getFeatures().put(feature.name(), stateLite);
         }
     }
 
@@ -42,15 +55,13 @@ public class EnvironmentFeatureState extends FeatureState {
     @Override
     public boolean isEnabled() {
         FeatureStateLite result = properties.getFeatures().get(getFeature().name());
-        return result != null && result.isEnabled();
+        return result.isEnabled();
     }
 
     @Override
     public FeatureState setEnabled(boolean enabled) {
         FeatureStateLite result = properties.getFeatures().get(getFeature().name());
-        if (result != null) {
-            result.setEnabled(enabled);
-        }
+        result.setEnabled(enabled);
         return this;
     }
 }
