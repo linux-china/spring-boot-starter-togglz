@@ -20,8 +20,8 @@ public class EnvironmentFeatureState extends FeatureState {
         FeatureStateLite featureStateLite = properties.getFeatures().get(feature.name());
         if (featureStateLite != null) {
             setStrategyId(featureStateLite.getStrategy());
-            if (!featureStateLite.getParameters().isEmpty()) {
-                for (Map.Entry<String, String> entry : featureStateLite.getParameters().entrySet()) {
+            if (!featureStateLite.getParam().isEmpty()) {
+                for (Map.Entry<String, String> entry : featureStateLite.getParam().entrySet()) {
                     setParameter(entry.getKey(), entry.getValue());
                 }
             }

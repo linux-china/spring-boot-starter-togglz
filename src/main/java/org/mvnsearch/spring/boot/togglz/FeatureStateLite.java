@@ -11,7 +11,7 @@ import java.util.Map;
 public class FeatureStateLite {
     private boolean enabled;
     private String strategy;
-    private final Map<String, String> parameters = new HashMap<String, String>();
+    private final Map<String, String> param = new HashMap<String, String>();
 
     public boolean isEnabled() {
         return enabled;
@@ -29,7 +29,7 @@ public class FeatureStateLite {
         this.strategy = strategy;
     }
 
-    public Map<String, String> getParameters() {
-        return parameters;
+    public Map<String, String> getParam() {
+        return param;
     }
 }
