@@ -12,9 +12,7 @@ import org.togglz.core.context.StaticFeatureManagerProvider;
 import org.togglz.core.manager.FeatureManager;
 import org.togglz.core.manager.FeatureManagerBuilder;
 import org.togglz.core.spi.ActivationStrategy;
-import org.togglz.core.user.FeatureUser;
 import org.togglz.core.user.NoOpUserProvider;
-import org.togglz.core.user.SimpleFeatureUser;
 import org.togglz.core.user.UserProvider;
 
 import java.util.List;
