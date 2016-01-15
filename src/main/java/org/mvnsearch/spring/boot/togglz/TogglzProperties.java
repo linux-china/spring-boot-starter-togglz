@@ -1,6 +1,7 @@
 package org.mvnsearch.spring.boot.togglz;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.togglz.core.Feature;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,20 +16,20 @@ import java.util.Map;
 public class TogglzProperties {
 
     /**
-     * feature enum
+     * feature enums
      */
-    private List<Class> featureEnum;
+    private Class<? extends Feature>[] featureEnums;
     /**
      * features
      */
     private Map<String, FeatureStateLite> features = new HashMap<>();
 
-    public List<Class> getFeatureEnum() {
-        return featureEnum;
+    public Class<? extends Feature>[] getFeatureEnums() {
+        return featureEnums;
     }
 
-    public void setFeatureEnum(List<Class> featureEnum) {
-        this.featureEnum = featureEnum;
+    public void setFeatureEnums(Class<? extends Feature>[] featureEnums) {
+        this.featureEnums = featureEnums;
     }
 
     public Map<String, FeatureStateLite> getFeatures() {

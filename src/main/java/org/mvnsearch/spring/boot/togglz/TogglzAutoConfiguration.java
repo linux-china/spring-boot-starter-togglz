@@ -32,8 +32,7 @@ public class TogglzAutoConfiguration {
     @ConditionalOnMissingBean
     public FeatureManager featureManager() {
         FeatureManagerBuilder builder = new FeatureManagerBuilder();
-        Class<Feature>[] clazzList = new Class[properties.getFeatureEnum().size()];
-        builder.featureEnums(properties.getFeatureEnum().toArray(clazzList))
+        builder.featureEnums(properties.getFeatureEnums())
                 .stateRepository(new EnvironmentStateRepository(properties)).userProvider(new NoOpUserProvider());
         FeatureManager featureManager = builder.build();
         StaticFeatureManagerProvider.setFeatureManager(featureManager);
@@ -46,7 +45,7 @@ public class TogglzAutoConfiguration {
     }
 
     @Bean
-    public TogglzEndpoint togglzEndpoint(TogglzProperties properties, FeatureManager featureManager) {
+    public TogglzEndpoint togglzEndpoint(TogglzProperties properties) {
         return new TogglzEndpoint(properties);
     }
 

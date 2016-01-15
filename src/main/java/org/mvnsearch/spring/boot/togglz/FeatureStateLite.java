@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class FeatureStateLite {
     private boolean enabled;
-    private String strategyId;
+    private String strategy;
     private final Map<String, String> parameters = new HashMap<String, String>();
 
     public boolean isEnabled() {
@@ -21,12 +21,12 @@ public class FeatureStateLite {
         this.enabled = enabled;
     }
 
-    public String getStrategyId() {
-        return strategyId;
+    public String getStrategy() {
+        return strategy;
     }
 
-    public void setStrategyId(String strategyId) {
-        this.strategyId = strategyId;
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
     }
 
     public Map<String, String> getParameters() {
